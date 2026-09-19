@@ -1,3 +1,11 @@
+"""
+Pareja
+
+Miguel Ceballos Aguilar - A01716791
+
+Marce...
+"""
+
 def calc_damage(attack, mult):
     return attack * mult
 
@@ -15,7 +23,7 @@ def check_battle_status(player_hp, monster_hp):
     elif player_hp <= 0:
         return "DEFEAT"
     else:
-        return "Battle continues"
+        return "Battle Continues"
     
 def turn_resolution(player_hp, player_mana, player_atk, monster_hp, monster_atk, choice):
     if choice.lower() == "attack":
@@ -23,8 +31,8 @@ def turn_resolution(player_hp, player_mana, player_atk, monster_hp, monster_atk,
         monster_hp -= damage
         player_hp -= monster_atk
         
-        print("You decided to attack and delt", damage, "damage")
-        print("Monster delt you", monster_atk, "damage")
+        print("You decided to attack and dealt", damage, "damage")
+        print("Monster dealt you", monster_atk, "damage")
     
     elif choice.lower() == "magic":
         if player_mana >= 15:
@@ -34,27 +42,27 @@ def turn_resolution(player_hp, player_mana, player_atk, monster_hp, monster_atk,
             monster_damage = monster_atk / 2
             player_hp -= monster_damage
             
-            print("You decided to make a magic attack and delt", damage, "damage")
-            print("Monster delt you", monster_damage, "damage")
+            print("You decided to make a magic attack and dealt", damage, "damage")
+            print("Monster dealt you", monster_damage, "damage")
         
         else:
             player_hp -= monster_atk
             
             print("Not enough mana, your spell failed!")
-            print("Monster delt you", monster_atk, "damage")
+            print("Monster dealt you", monster_atk, "damage")
     
     elif choice.lower() == "heal":
         player_hp = apply_healing(player_hp, 30)
         monster_damage = monster_atk / 2
-        player_hp -= monster_damage
         
         print("You healed yourself, now you have", player_hp, "hp")
-        print("Monster delt you", monster_damage, "damage")
+        
+        player_hp -= monster_damage
+        print("Monster dealt you", monster_damage, "damage")
         
     else:
         print("Invalid action")
         print("Choose: attack, magic, or heal")
-        return player_hp, player_mana, monster_hp
     
     if player_hp <= 0:
         player_hp = 0
@@ -79,7 +87,7 @@ def main():
     monster_atk = 10
     
     print("THE DUNGEON ENCOUNTER")
-    print("You enounter a monster")
+    print("You encounter a monster")
     print("Actions: attack, magic, heal")
     
     while (player_hp > 0) and (monster_hp > 0):
