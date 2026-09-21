@@ -3,7 +3,7 @@ Pareja
 
 Miguel Ceballos Aguilar - A01716791
 
-Marce...
+Marcelo Silva Benitez - A01716022
 """
 
 def calc_damage(attack, mult):
